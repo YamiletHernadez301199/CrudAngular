@@ -1,0 +1,59 @@
+<!-- <p>ngmodel works!</p> -->
+<!-- <input type="text" [(ngModel)]='personas'> -->
+<div class="container">
+    <div class="row my-4">
+        <div class="col">
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Editar</th>
+                        <th>Borrar</th>
+                        <th>Seleccionar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let articulos of inventario">
+                        <th> {{ articulos.id }} </th>
+                        <td> {{ articulos.nombre }} </td>
+                        <td> {{ articulos.precio}} </td>
+                        <td>
+                            <button (click)="editar(formulario.id)" class="btn btn-warning">Editar</button>
+                        </td>
+                        <td>
+                            <button (click)="eliminar(articulos.id)" class="btn btn-danger">Eliminar</button>
+                        </td>
+                        <td>
+                            <button (click)="seleccionar(articulos)" class="btn btn-info">Seleccionar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <h2>Agregar Producto</h2>
+            <div class="row g-2 my-4">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input  type="number" class="form-control" [(ngModel)]="formulario.id">
+                        <label for="floatingInputGrid">ID</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" [(ngModel)]="formulario.nombre">
+                        <label for="floatingInputGrid">Nombre</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" [(ngModel)]="formulario.precio">
+                        <label for="floatingInputGrid">Precio</label>
+                    </div>
+                </div>
+            </div>
+            <button (click)="agregar()" class="btn btn-success">Agregar</button>
+        </div>
+    </div>
+</div>
